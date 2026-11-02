@@ -61,7 +61,7 @@ st.write("상자그림으로 두 그룹의 분포를 비교하고, 표에서 각
 col1, col2 = st.columns(2)
 with col1:
     fig = px.box(
-              df.dropna(subset=["age", "뇌졸중 여부"]),
+        df.dropna(subset=["age", "뇌졸중 여부"]),
         x="뇌졸중 여부", y="age", color="뇌졸중 여부",
         category_orders={"뇌졸중 여부": ["뇌졸중 없음", "뇌졸중 있음"]},
         title="뇌졸중 유무에 따른 나이",
@@ -116,7 +116,7 @@ def make_rate_table(data, column, labels):
 
 col1, col2 = st.columns(2)
 with col1:
-     rates = make_rate_table(df, "hypertension", {0: "고혈압 없음", 1: "고혈압 있음"})
+    rates = make_rate_table(df, "hypertension", {0: "고혈압 없음", 1: "고혈압 있음"})
     fig = px.bar(
         rates, x="구분", y="뇌졸중 비율(%)",
         text=rates["뇌졸중 비율(%)"].map(lambda x: f"{x:.2f}%"),
